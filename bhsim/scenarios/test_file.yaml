@@ -1,0 +1,76 @@
+engine:
+  dimension: false          # false = 2D, true = 3D
+  integrator: "verlet"      # "verlet" or "rk4"
+  barnes_hut: false         
+  theta: 0.7                # maps to Option<f64>
+
+parameters:
+  t_end: 100.0              # total simulation time
+  h0: 0.001                  # step size
+  atol: 1.0e-9              # absolute tolerance (for future adaptive methods)
+  rtol: 1.0e-6              # relative tolerance
+  merge_t: 1.0e-3           # merge threshold
+  seed: 42.0                # deterministic seed
+  eps2: 1e-4                # softening
+  G: 25.0                    # gravitational constant
+
+bodies:
+  # Sun at origin: 1 solar mass
+  - x: [0.0, 0.0]
+    v: [0.0, 0.0]
+    m: 1.0
+    radius: 0.05
+
+  # Mercury ~0.39 AU
+  - x: [0.39, 0.0]
+    v: [0.0, 8.006]       # 5 * 1/sqrt(0.39)
+    m: 1.65e-7
+    radius: 0.015
+
+  # Venus ~0.72 AU
+  - x: [0.72, 0.0]
+    v: [0.0, 5.893]       # 5 * 1/sqrt(0.72)
+    m: 2.45e-6
+    radius: 0.018
+
+  # Earth 1.0 AU
+  - x: [1.0, 0.0]
+    v: [0.0, 5.0]         # 5 * 1/sqrt(1.0)
+    m: 3.00e-6
+    radius: 0.02
+
+  # Mars ~1.52 AU
+  - x: [1.52, 0.0]
+    v: [0.0, 4.056]       # 5 * 1/sqrt(1.52)
+    m: 3.23e-7
+    radius: 0.018
+
+  # Jupiter ~5.20 AU
+  - x: [5.2, 0.0]
+    v: [0.0, 2.193]       # 5 * 1/sqrt(5.2)
+    m: 9.54e-4
+    radius: 0.03
+
+  # Saturn ~9.58 AU
+  - x: [9.58, 0.0]
+    v: [0.0, 1.615]       # 5 * 1/sqrt(9.58)
+    m: 2.86e-4
+    radius: 0.028
+
+  # Uranus ~19.2 AU
+  - x: [19.2, 0.0]
+    v: [0.0, 1.141]       # 5 * 1/sqrt(19.2)
+    m: 4.37e-5
+    radius: 0.025
+
+  # Neptune ~30.1 AU
+  - x: [30.1, 0.0]
+    v: [0.0, 0.911]       # 5 * 1/sqrt(30.1)
+    m: 5.15e-5
+    radius: 0.025
+
+  # Pluto ~39.5 AU (optional)
+  - x: [39.5, 0.0]
+    v: [0.0, 0.796]       # 5 * 1/sqrt(39.5)
+    m: 6.6e-9
+    radius: 0.012

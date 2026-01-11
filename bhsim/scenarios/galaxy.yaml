@@ -1,0 +1,115 @@
+engine:
+  dimension: false          # false = 2D, true = 3D
+  integrator: "verlet"      # "verlet" or "rk4"
+  barnes_hut: false         
+  theta: 0.7                # maps to Option<f64>
+
+parameters:
+  t_end: 200.0              # total simulation time
+  h0: 0.001                  # step size
+  atol: 1.0e-9              # absolute tolerance (for future adaptive methods)
+  rtol: 1.0e-6              # relative tolerance
+  merge_t: 1.0e-3           # merge threshold
+  seed: 42.0                # deterministic seed
+  eps2: 1e-4                # softening
+  G: 1.0                  # gravitational constant
+
+bodies:
+  # Central bulge (3 heavy bodies stacked)
+  - x: [0.0, 0.0]
+    v: [0.0, 0.0]
+    m: 8.0
+    radius: 0.03
+
+  - x: [0.02, 0.0]
+    v: [0.0, 0.0]
+    m: 6.0
+    radius: 0.03
+
+  - x: [-0.02, 0.0]
+    v: [0.0, 0.0]
+    m: 6.0
+    radius: 0.03
+
+  # Bar along x-axis, small radial velocity inward or outward
+  - x: [1.5, 0.0]
+    v: [0.0, 2.2]
+    m: 0.8
+    radius: 0.02
+
+  - x: [-1.5, 0.0]
+    v: [0.0, -2.2]
+    m: 0.8
+    radius: 0.02
+
+  - x: [1.0, 0.0]
+    v: [0.0, 2.6]
+    m: 0.8
+    radius: 0.02
+
+  - x: [-1.0, 0.0]
+    v: [0.0, -2.6]
+    m: 0.8
+    radius: 0.02
+
+  # Inner disk (r ~ 2)
+  - x: [2.0, 0.0]
+    v: [0.0, 2.2]
+    m: 0.6
+    radius: 0.018
+
+  - x: [0.0, 2.0]
+    v: [-2.2, 0.0]
+    m: 0.6
+    radius: 0.018
+
+  - x: [-2.0, 0.0]
+    v: [0.0, -2.2]
+    m: 0.6
+    radius: 0.018
+
+  - x: [0.0, -2.0]
+    v: [2.2, 0.0]
+    m: 0.6
+    radius: 0.018
+
+  # Outer disk (r ~ 3–4), slightly slower, more diffuse
+  - x: [3.0, 0.0]
+    v: [0.0, 1.8]
+    m: 0.5
+    radius: 0.018
+
+  - x: [0.0, 3.0]
+    v: [-1.8, 0.0]
+    m: 0.5
+    radius: 0.018
+
+  - x: [-3.0, 0.0]
+    v: [0.0, -1.8]
+    m: 0.5
+    radius: 0.018
+
+  - x: [0.0, -3.0]
+    v: [1.8, 0.0]
+    m: 0.5
+    radius: 0.018
+
+  - x: [2.5, 1.5]
+    v: [-1.2, 1.8]
+    m: 0.4
+    radius: 0.018
+
+  - x: [-2.5, 1.5]
+    v: [-1.8, -1.2]
+    m: 0.4
+    radius: 0.018
+
+  - x: [-2.5, -1.5]
+    v: [1.2, -1.8]
+    m: 0.4
+    radius: 0.018
+
+  - x: [2.5, -1.5]
+    v: [1.8, 1.2]
+    m: 0.4
+    radius: 0.018

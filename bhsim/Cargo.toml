@@ -1,0 +1,13 @@
+[package]
+name = "bhsim"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+clap = { version = "4.5.47", features = ["derive"]}
+nalgebra = "0.32"
+ode_solvers = "0.6.1"
+bevy = { version = "0.14.2", features = ["bevy_winit", "bevy_sprite", "png", "x11", "bevy_pbr", "bevy_render", "bevy_core_pipeline"] }

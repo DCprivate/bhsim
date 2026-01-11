@@ -1,0 +1,33 @@
+engine:
+  dimension: true          # false = 2D, true = 3D
+  integrator: "verlet"      # "verlet" or "rk4"
+  barnes_hut: true         
+  theta: 0.7                # maps to Option<f64>
+
+parameters:
+  t_end: 200.0              # total simulation time
+  h0: 0.001                  # step size
+  atol: 1.0e-9              # absolute tolerance (for future adaptive methods)
+  rtol: 1.0e-6              # relative tolerance
+  merge_t: 1.0e-3           # merge threshold
+  seed: 42.0                # deterministic seed
+  eps2: 1e-4                # softening
+  G: 0.1                  # gravitational constant
+
+bodies:
+- x: [0.0, 0.0, 0.0]
+  v: [0.0, 0.0, 0.0]
+  m: 200.0
+  radius: 0.05
+- x: [-0.13498240897852845, 3.5138682966980754, 0.556785479786265]
+  v: [0.02364712141640124, -0.35039567304236713, 2.2113440301575387]
+  m: 0.8383497437114557
+  radius: 0.014143807526535124
+- x: [-0.046846908188837744, 3.9038653575344937, 2.3733988093788447]
+  v: [-0.028136202519639664, -0.9846717816735084, 1.6196292177390195]
+  m: 0.7526776440516811
+  radius: 0.013644603856994791
+- x: [0.08993066266771393, 0.3494911371204058, 1.0494809314790818]
+  v: [-0.027955937795930332, -4.063899439311274, 1.353332674835918]
+  m: 0.7946328419379544
+  radius: 0.013644603856994791
