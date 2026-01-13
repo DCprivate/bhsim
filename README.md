@@ -46,7 +46,7 @@ Some other up front problems that need to be addressed before moving onto parall
     - Live data on screen
 - **Scenario generator changes:**
     - Scenario generator dump yaml into the scenarios folder
-    - Configurable generator (change axis, shape, distribution)
+    - Configurable generator (change xis, shape, distribution)
     - Dimension agnostic
 - **Collisions/detection**
 - **Relativistic corrections:**
